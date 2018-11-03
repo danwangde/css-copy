@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淡入淡出的回到顶部</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#wrapper{margin: 0 auto;width: 480px;}
+		.cont1{height: 500px;background-color: wheat;}
+		.cont2{height: 500px;background-color: darkred;}
+		.cont3{height: 500px;background-color: blueviolet;}
+		#toTop {display: none;text-decoration: none;position: fixed;
+			bottom: 10px;right: 10px;overflow: hidden;width: 100px;
+			height: 100px;border: none;text-indent: 100%;
+			text-align: center;}
+		img{
+
+			width:100px;
+			height:100px;
+			display: block;
+
+		}
+	</style>
+	<script src="jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div class="cont1"></div>
+	<div class="cont2"></div>
+	<div class="cont3"></div>
+	<a href="javascript:void(0)" id="toTop" style="display: block;">
+		<img src="top.jpg" alt="">
+	</a>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+        $(function () {
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>100){
+                    $("#toTop").fadeIn(1500);
+                }
+                else
+                {
+                    $("#toTop").fadeOut(1500);
+                }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#toTop").click(function(){
+                $('body,html').animate({scrollTop:0},1000);
+                return false;
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

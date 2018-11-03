@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			position: fixed;
+			top:400px;
+			left:0;
+		}
+		img{
+			width:100px;
+			height:100px;
+			display: block;
+		}
+
+		#div2{
+			width: 100px;
+			height: 100px;
+			position: fixed;
+			top:510px;
+			left:0;
+		}
+	</style>
+	<script src="jquery-1.10.1.min.js"></script>
+</head>
+<body style="height: 2000px">
+<div style="background-color: #fd8845">12334444</div>
+<div id="div1"><img src="top.jpg" alt=""></div>
+<div id="div2"><img style="transform:rotate(180deg);" src="top.jpg" alt=""></div>
+<script type="text/javascript">
+    var oDiv1=document.getElementById('div1');
+    var oDiv2=document.getElementById('div2');
+   /* window.onscroll=function () {
+        var scollTop=document.documentElement.scrollTop || document.body.scrollTop;
+
+        oDiv.style.top=scollTop+document.documentElement.clientHeight-oDiv.offsetHeight+'px';
+    }*/
+
+$(function () {
+
+    $('#div1').click(function () { $('html,body').animate({ scrollTop: '0px' }, 600); return false; });
+    $('#div2').click(function () { $('html,body').animate({ scrollTop: document.getElementsByTagName('BODY')[0].scrollHeight}, 600); return false; });
+})
+    /*oDiv1.onclick=function () {
+		var iTimer=null;
+		var iSpeed=iCur=0;
+
+		iTimer=setInterval(function () {
+            iCur=document.documentElement.scrollTop ||document.body.scrollTop;
+
+            iSpeed=Math.floor((0-iCur)/8);
+
+            if (iCur==0){
+                clearInterval(iTimer);
+            }else {
+                document.documentElement.scrollTop=document.body.scrollTop=iCur+iSpeed;
+            }
+
+
+        },30)
+
+
+    }
+
+    oDiv2.onclick=function () {
+        var iTimer1=null;
+        var iSpeed1=iCur1=0;
+        var max=2000-document.documentElement.clientHeight;
+
+        iTimer1=setInterval(function () {
+            iCur1=document.documentElement.scrollTop ||document.body.scrollTop;
+
+            iSpeed1=Math.floor((max-iCur1)/8);
+
+            if (iCur1==max){
+                clearInterval(iTimer1);
+            }else {
+                document.documentElement.scrollTop=document.body.scrollTop=iCur1-iSpeed1;
+            }
+
+
+        },30)
+
+    }*/
+
+
+</script>
+</body>
+</html>

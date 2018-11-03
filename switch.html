@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>switch</title>
+	<link rel="shortcut icon" href="github 1.ico">
+</head>
+<body>
+<script>
+    (function () {
+        function showLevel(score) {
+            switch (Math.floor(score / 10)) {
+                case 10:
+                    alert('满分');
+                    break;
+                case 9:
+                    alert('优秀');
+                    break;
+                case 8:
+                    alert('良好');
+                    break;
+                case 7:
+                    alert('一般好');
+                    break;
+                case 6:
+                    alert('及格');
+                    break;
+                case 5:
+                case 4:
+                case 3:
+                case 2:
+                case 1:
+                case 0:
+                    alert('不及格');
+                    break;
+
+                default:
+                    alert('不在范围内')
+            }
+        }
+
+        showLevel(-20);
+    })()
+</script>
+</body>
+</html>

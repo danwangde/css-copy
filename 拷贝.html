@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<script>
+	//浅拷贝
+	var a ={name:'leo',age:20};
+	function copy(a) {
+		var b={};
+
+		for (var i in a){
+		    b[i]=a[i];
+		}
+		return b;
+    }
+
+	a.hobby=['song','sport','readings'];
+    var b=copy(a);
+    b.age=30;
+	b.number='24号';
+	b.hobby.shift('');
+	console.log(b.age);
+	console.log(a.age);
+	console.log(b.hobby);
+
+
+	//深拷贝
+	function Copy(a,b) {
+		var b=b||{};
+		for (var i in a){
+		    if (typeof a[i]=='object'){
+		        b[i]=(a[i].constructor===Array)?[]:{};
+		        Copy(a[i],b[i]);
+			} else{
+		        b[i]=a[i];
+			}
+		}
+		return b;
+    }
+
+    var a={name:'wbf',hobby:['reading','coffee']};
+    var b={};
+
+    b=Copy(a,b);
+
+    b.hobby.push('dancing');
+
+    console.log(b.hobby);
+    console.log(a.hobby);
+    console.log(typeof a.name)
+
+
+	//深拷贝2
+
+    function deepClone(obj){
+        var _obj = JSON.stringify(obj),
+            objClone = JSON.parse(_obj);
+        return objClone
+    }
+    var a=[0,1,[2,3],4],
+        b=deepClone(a);
+    a[0]=1;
+    a[2][0]=1;
+    console.log(a,b);
+
+    //深拷贝3
+
+    var  a=[0,1,[2,3],4],
+        b=$.extend(true,[],a);
+    a[0]=1;
+    a[2][0]=1;
+    console.log(a,b);
+
+
+
+</script>
+
+
+
+</body>
+</html>
